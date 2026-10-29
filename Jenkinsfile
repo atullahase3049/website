@@ -34,7 +34,7 @@ pipeline {
         stage('Kubernetes Deploy') {
             steps {
                 sh '''
-                    ssh -i /home/ubuntu/Project.pem \
+                    ssh -i /var/lib/jenkins/Project.pem \
                         -o StrictHostKeyChecking=no \
                         ubuntu@172.31.9.162 \
                         "KUBECONFIG=/home/ubuntu/.kube/config kubectl set image deployment/nginx-app nginx=atul03030304/devops-website:latest && KUBECONFIG=/home/ubuntu/.kube/config kubectl rollout status deployment/nginx-app"
